@@ -27,6 +27,11 @@ public:
 
 	ETeam CurrentTurn = ETeam::White; 
 
+	FVector2D LastMoveStart;
+	FVector2D LastMoveEnd;
+
+	AChessPieces* EnPassantTarget = nullptr;
+
 protected:
 	virtual void BeginPlay() override;
 	virtual void SetupInputComponent() override;
@@ -37,6 +42,14 @@ private:
 	void CalculatePossibleMoves();
 	bool IsValidMove(const FVector2D& TargetPosition);
 	void MoveSelectedPiece(const FVector2D& TargetPosition);
+
+	void MoveRookForCastle(int32 Row, int32 RookCol, int32 TargetCol);
+
+	void PromotePawn(AChessPieces* Pawn);
+
+	bool IsInCheck(ETeam Team);
+
+	bool IsCheckmate(ETeam Team);
 
 	UPROPERTY()
 	AChessPieces* SelectedPiece = nullptr;

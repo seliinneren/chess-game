@@ -47,7 +47,11 @@ public:
 	UPROPERTY(BlueprintReadWrite, Category = "ChessPiece")
 	int32 BoardCol;
 
+	UPROPERTY(BlueprintReadWrite)
 	bool bHasMoved; 
+
+	UPROPERTY(BlueprintReadWrite)
+	bool bJustDoubleMoved;
 
 protected:
 	virtual void BeginPlay() override;

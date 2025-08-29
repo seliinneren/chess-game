@@ -14,7 +14,6 @@ AChessPieces::AChessPieces()
 void AChessPieces::BeginPlay()
 {
 	Super::BeginPlay();
-	bHasMoved = false; 
 }
 
 void AChessPieces::Tick(float DeltaTime)
